@@ -31,6 +31,12 @@ RUN echo "alias ll='ls -la'" >> /etc/bash.bashrc
 # Set default user back to vscode if using DevContainers
 USER vscode
 
+RUN useradd -m node
+USER node
+WORKDIR /home/node
+
+RUN mkdir -p /workspaces && chown -R node:node /workspaces
+
 RUN \
     cd /workspaces && \
     git clone git@github.com:neverendingsupport/angularjs-example-app.git
