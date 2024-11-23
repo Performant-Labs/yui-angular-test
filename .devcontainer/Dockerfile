@@ -5,10 +5,7 @@ ARG USERNAME=node
 ARG NPM_GLOBAL=/usr/local/share/npm-global
 
 USER root
-RUN useradd -m node
 RUN useradd -m vscode
-
-USER ${USERNAME}
 
 # Add NPM global to PATH.
 ENV PATH=${NPM_GLOBAL}/bin:${PATH}
@@ -34,14 +31,7 @@ RUN apt-get update && apt-get install -y git tree jq && apt-get clean
 # Set up quality of life improvements. Add to all users.
 RUN echo "alias ll='ls -la'" >> /etc/bash.bashrc
 
-# Set default user back to vscode if using DevContainers
-USER vscode
-
 RUN mkdir -p /workspaces && chown -R vscode:vscode /workspaces
-
-RUN \
-    cd /workspaces && \
-    git clone git@github.com:neverendingsupport/angularjs-example-app.git
 
 #
 # For reference.
