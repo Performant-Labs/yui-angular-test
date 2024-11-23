@@ -22,6 +22,22 @@ RUN \
     && su ${USERNAME} -c "umask 0002 && npm install -g eslint" \
     && npm cache clean --force > /dev/null 2>&1
 
+
+    # Set up quality of life improvements. Add to all users.
+RUN echo "alias ll='ls -la'" >> /etc/bash.bashrc
+
+# Set default user back to vscode if using DevContainers
+USER vscode
+
+RUN \
+    cd /workspaces
+    git clone git@github.com:neverendingsupport/angularjs-example-app.git
+
+#
+# For reference.
+#
+# -------------------------------------------------------------
+
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
