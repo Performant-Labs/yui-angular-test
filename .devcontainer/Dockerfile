@@ -22,8 +22,10 @@ RUN \
     && su ${USERNAME} -c "umask 0002 && npm install -g eslint" \
     && npm cache clean --force > /dev/null 2>&1
 
+# Install Git
+RUN apt-get update && apt-get install -y git tree jq && apt-get clean
 
-    # Set up quality of life improvements. Add to all users.
+# Set up quality of life improvements. Add to all users.
 RUN echo "alias ll='ls -la'" >> /etc/bash.bashrc
 
 # Set default user back to vscode if using DevContainers

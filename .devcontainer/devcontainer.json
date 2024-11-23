@@ -1,5 +1,5 @@
 {
-	"name": "Node.js",
+	"name": "YUI and Angular Test Harness",
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
