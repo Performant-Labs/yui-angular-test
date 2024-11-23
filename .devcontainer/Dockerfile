@@ -32,7 +32,7 @@ RUN echo "alias ll='ls -la'" >> /etc/bash.bashrc
 USER vscode
 
 RUN \
-    cd /workspaces
+    cd /workspaces && \
     git clone git@github.com:neverendingsupport/angularjs-example-app.git
 
 #
