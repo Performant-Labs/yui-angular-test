@@ -4,7 +4,7 @@
 		"dockerfile": "Dockerfile"
 	},
 	"initializeCommand": "/bin/bash /workspaces/setup-github-auth.sh",
-	"postCreateCommand": "git clone https://github.com/org-name/repo-name.git /workspaces/repo",
+	"postCreateCommand": "git clone https://github.com/neverendingsupport/angularjs-example-app.git /workspaces",
 	// Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "node",
 	"features": {
