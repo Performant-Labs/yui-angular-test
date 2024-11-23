@@ -4,6 +4,11 @@ FROM node:${VARIANT}
 ARG USERNAME=node
 ARG NPM_GLOBAL=/usr/local/share/npm-global
 
+RUN useradd -m node
+RUN useradd -m vscode
+
+USER ${USERNAME}
+
 # Add NPM global to PATH.
 ENV PATH=${NPM_GLOBAL}/bin:${PATH}
 
@@ -31,11 +36,7 @@ RUN echo "alias ll='ls -la'" >> /etc/bash.bashrc
 # Set default user back to vscode if using DevContainers
 USER vscode
 
-RUN useradd -m node
-USER node
-WORKDIR /home/node
-
-RUN mkdir -p /workspaces && chown -R node:node /workspaces
+RUN mkdir -p /workspaces && chown -R vscode:vscode /workspaces
 
 RUN \
     cd /workspaces && \
