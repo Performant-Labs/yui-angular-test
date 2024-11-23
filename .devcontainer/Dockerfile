@@ -33,6 +33,10 @@ RUN echo "alias ll='ls -la'" >> /etc/bash.bashrc
 
 RUN mkdir -p /workspaces && chown -R vscode:vscode /workspaces
 
+USER vscode
+
+CMD ["bash", "-c", "cd /workspaces && exec /bin/bash"]
+
 #
 # For reference.
 #
