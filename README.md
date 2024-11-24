@@ -2,6 +2,12 @@
 
 > Example Angular 1.5+ (ES6 + Components) codebase that adheres to the [RealWorld](https://github.com/gothinkster/realworld-example-apps) spec and API.
 
+---
+
+This is a **MODIFIED**  version of the app that uses YUI 3.0 on an earlier version of Node.
+
+---
+
 View the **[demo application](https://angularjs.realworld.io)** or **[learn how to build the application from scratch](https://thinkster.io/angularjs-es6-tutorial)**!
 
 # Getting started
