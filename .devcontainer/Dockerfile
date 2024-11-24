@@ -1,4 +1,4 @@
-ARG VARIANT=22-bookworm
+ARG VARIANT=12-buster
 FROM node:${VARIANT}
 
 ARG USERNAME=node
@@ -25,8 +25,14 @@ RUN \
     && su ${USERNAME} -c "umask 0002 && npm install -g eslint" \
     && npm cache clean --force > /dev/null 2>&1
 
-# Install Git
+# Install extra apps.
 RUN apt-get update && apt-get install -y git tree jq && apt-get clean
+
+# Install gulp globally.
+RUN npm install -g gulp
+
+# Install app's node dependencies.
+RUN npm install
 
 # Set up quality of life improvements. Add to all users.
 RUN echo "alias ll='ls -la'" >> /etc/bash.bashrc
