@@ -1,12 +1,10 @@
 #
 #
-# DO NO USE. Use the one in the parent directory.
+# DO NOT USE. Use the one in the parent directory.
 #
 #
 #
 #
-
-
 
 
 ARG VARIANT=22-bookworm
