@@ -31,13 +31,16 @@ RUN source $NVM_DIR/nvm.sh \
 # add node and npm to path so the commands are available
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
-    
+
 # Confirm Node.js and npm are installed
 RUN node -v
 RUN npm -v
 
 # Install Gulp globally inside the container
 RUN npm i -g gulp@3.9.1
+
+# Set up quality of life improvements. Add to all users.
+RUN echo "alias ll='ls -la'" >> /etc/bash.bashrc
 
 # Copy the project files into the container at /app
 COPY . .

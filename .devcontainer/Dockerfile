@@ -1,4 +1,15 @@
-ARG VARIANT=12-buster
+#
+#
+# DO NO USE. Use the one in the parent directory.
+#
+#
+#
+#
+
+
+
+
+ARG VARIANT=22-bookworm
 FROM node:${VARIANT}
 
 ARG USERNAME=node
